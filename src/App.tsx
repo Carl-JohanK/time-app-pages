@@ -7,17 +7,20 @@ function App() {
   const [time, setTime] = useState(false);
 
   function start(){
-    setTime(true);
-    setSec(() => sec + 1);
+    if(!time){
+      setTime(true);
+      setSec(() => sec + 1);
+    }
   }
 
   function stop(){
     setTime(false);
   }
 
-  /*function clearTime(){
-    
-  }*/
+  function clearTime(){
+    setSec(0);
+    setMin(0);
+  }
 
   function timer(){
     if (time){
@@ -42,9 +45,7 @@ function App() {
       <h2>minutes: {min} secends: {sec}</h2>
       <h3 onMouseDown={start}>start</h3>
       <h3 onMouseDown={stop}>stop</h3>
-      {
-      //<h3 onMouseDown={clearTime}></h3>
-      }
+      <h3 onMouseDown={clearTime}></h3>
     </>
   )
 }
