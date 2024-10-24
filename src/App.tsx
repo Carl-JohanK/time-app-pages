@@ -18,8 +18,10 @@ function App() {
   }
 
   function clearTime(){
-    setSec(0);
-    setMin(0);
+    if(!time){
+      setSec(0);
+      setMin(0);
+    }
   }
 
   function timer(){
@@ -45,7 +47,7 @@ function App() {
       <h2>minutes: {min} secends: {sec}</h2>
       <h3 onMouseDown={start}>start</h3>
       <h3 onMouseDown={stop}>stop</h3>
-      <h3 onMouseDown={clearTime}></h3>
+      <h3 onMouseDown={clearTime}>clear</h3>
     </>
   )
 }
